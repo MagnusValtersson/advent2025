@@ -1,6 +1,7 @@
 from tkinter import *
-import testScript
+from functools import partial
 import importlib
+from day1 import Day1
 
 class MainMenu():
     def __init__(self, title, geometry):
@@ -16,26 +17,17 @@ class MainMenu():
             self.buttons[key].pack()
         self.root.mainloop()
 
-    def addButton(self, name, func):
-        self.buttons[name] = Button(self.root, text=name, anchor="center", cursor="hand2", pady=5, width=4, height=1, command = func)
+    def addButton(self, name, day):
+        self.buttons[name] = Button(self.root, text=name, anchor="center", cursor="hand2", pady=5, width=4, height=1, command = partial(menu.insertText, day))
 
-    def insertText(self):
-        importlib.reload(testScript)
+    def insertText(self, dayNr):
+        day = dayNr()
         self.textBox.delete('1.0', END)
-        self.textBox.insert(END, testScript.getTestText() + '\n')
-
-
+        self.textBox.insert(END, day.getAnswer() + '\n')
 
 if __name__ == "__main__":
     menu = MainMenu("Advent of Code 2025", "600x600")
-    # root = Tk()
-    # root.title("Advent of Code 2025")
-    # root.geometry("600x600")
-    # textBox = Text(root, height = 5, width = 52)
-    menu.addButton("Day1", menu.insertText)
-    menu.addButton("Day2", menu.insertText)
+    day1 = Day1()
+    menu.addButton("Day1", Day1)
+    menu.addButton("Day2", Day1)
     menu.finalize()
-    # button = Button(root, text="Day1", anchor="center", cursor="hand2", pady=5, width=4, height=1, command = insertText)
-    # textBox.pack()
-    # button.pack()
-    # root.mainloop()
