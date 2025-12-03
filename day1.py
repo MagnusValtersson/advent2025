@@ -10,7 +10,6 @@ class Day1():
         return str(self.answer)
     
     def calculateAnswerB(self):
-        self.answer = 0
         position = 50
         for line in self.day.file:
             direction = line[0]
@@ -28,7 +27,6 @@ class Day1():
                     self.answer += 1
 
     def calculateAnswerA(self):
-        self.answer = 0
         position = 50
         for line in self.day.file:
             direction = line[0]

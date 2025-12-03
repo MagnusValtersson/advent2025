@@ -2,6 +2,8 @@ from tkinter import *
 from functools import partial
 import importlib
 from day1 import Day1
+from day2 import Day2
+from day3 import Day3
 
 class MainMenu():
     def __init__(self, title, geometry):
@@ -27,7 +29,7 @@ class MainMenu():
 
 if __name__ == "__main__":
     menu = MainMenu("Advent of Code 2025", "600x600")
-    day1 = Day1()
     menu.addButton("Day1", Day1)
-    menu.addButton("Day2", Day1)
+    menu.addButton("Day2", Day2)
+    menu.addButton("Day3", Day3)
     menu.finalize()
