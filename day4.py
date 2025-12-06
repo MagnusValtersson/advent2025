@@ -3,12 +3,9 @@ from AdventDay import AdventDay
 class Day4():
     def __init__(self):
         self.day = AdventDay("Day4", "input/day4.txt")
-        self.answer = 0
         self.data = []
-        i = 0
-        for line in self.day.file:
+        for line in self.file:
             self.data.append(list(line))
-            i += 1
 
     def getNeighbors(self, row, col):
         return [[row-1, col-1], [row-1, col], [row-1, col+1], [row, col-1], [row, col+1], [row+1, col-1], [row+1, col], [row+1, col+1]]
@@ -25,7 +22,7 @@ class Day4():
         print("Calculating Day3")
         self.calculateAnswerB()
         print("Done")
-        return str(self.answer)
+        return str(self.day.answer)
     
     def calculateAnswerB(self):
         managedToMove = True
@@ -41,7 +38,7 @@ class Day4():
                                 numOfPaperRolls += 1
                         if numOfPaperRolls < 4:
                             self.data[row][col] = '.'
-                            self.answer += 1
+                            self.day.answer += 1
                             managedToMove = True
     
     def calculateAnswerA(self):
@@ -54,4 +51,4 @@ class Day4():
                         if self.getIfPaperRoll(r, c):
                             numOfPaperRolls += 1
                     if numOfPaperRolls < 4:
-                        self.answer += 1
+                        self.day.answer += 1

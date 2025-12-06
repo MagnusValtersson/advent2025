@@ -3,13 +3,12 @@ from AdventDay import AdventDay
 class Day3():
     def __init__(self):
         self.day = AdventDay("Day3", "input/day3.txt")
-        self.answer = 0
 
     def getAnswer(self):
         print("Calculating Day3")
         self.calculateAnswerB()
         print("Done")
-        return str(self.answer)
+        return str(self.day.answer)
     
     def calculateAnswerB(self):
         for line in self.day.file:
@@ -21,7 +20,7 @@ class Day3():
                         currentDig = int(line[j])
                         currentPos = j
                 currentPos += 1
-                self.answer += currentDig * pow(10, (11-i))
+                self.day.answer += currentDig * pow(10, (11-i))
     
     def calculateAnswerA(self):
         for line in self.day.file:
@@ -37,4 +36,4 @@ class Day3():
                 if int(line[i]) > secondDig:
                     secondDig = int(line[i])
                     secondPos = i
-            self.answer += firstDig * 10 + secondDig
+            self.day.answer += firstDig * 10 + secondDig

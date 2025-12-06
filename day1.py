@@ -3,11 +3,10 @@ from AdventDay import AdventDay
 class Day1():
     def __init__(self):
         self.day = AdventDay("Day1", "input/day1.txt")
-        self.answer = 0
 
     def getAnswer(self):
         self.calculateAnswerB()
-        return str(self.answer)
+        return str(self.day.answer)
     
     def calculateAnswerB(self):
         position = 50
@@ -24,7 +23,7 @@ class Day1():
                 else:
                     print("Something wrong with direction: " + str(direction))
                 if position == 0:
-                    self.answer += 1
+                    self.day.answer += 1
 
     def calculateAnswerA(self):
         position = 50
@@ -39,4 +38,4 @@ class Day1():
                 print("Something wrong with direction: " + str(direction))
             position %= 100
             if position == 0:
-                self.answer += 1
+                self.day.answer += 1

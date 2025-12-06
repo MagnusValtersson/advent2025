@@ -5,6 +5,7 @@ import day1
 import day2
 import day3
 import day4
+import day5
 
 class MainMenu():
     def __init__(self, title, geometry):
@@ -28,6 +29,7 @@ class MainMenu():
         importlib.reload(day2)
         importlib.reload(day3)
         importlib.reload(day4)
+        importlib.reload(day5)
         day = dayNr()
         self.textBox.delete('1.0', END)
         self.textBox.insert(END, day.getAnswer() + '\n')
@@ -38,4 +40,5 @@ if __name__ == "__main__":
     menu.addButton("Day2", day2.Day2)
     menu.addButton("Day3", day3.Day3)
     menu.addButton("Day4", day4.Day4)
+    menu.addButton("Day5", day5.Day5)
     menu.finalize()

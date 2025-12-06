@@ -3,13 +3,12 @@ from AdventDay import AdventDay
 class Day2():
     def __init__(self):
         self.day = AdventDay("Day2", "input/day2.txt")
-        self.answer = 0
 
     def getAnswer(self):
         print("Calculating Day2")
         self.calculateAnswerB()
         print("Done")
-        return str(self.answer)
+        return str(self.day.answer)
     
     def calculateAnswerB(self):
         line = self.day.file.read()
@@ -20,7 +19,7 @@ class Day2():
                 # print(num)
                 for i in range(1, (halfLength) + 1):
                     if self.checkXS(num, i) == True:
-                        self.answer += num
+                        self.day.answer += num
                         print(str(num) + " is same when i: " + str(i))
                         break
                 # print("\n")
@@ -34,7 +33,7 @@ class Day2():
                 firstHalf = str(num)[0:halfLength]
                 secondHalf = str(num)[halfLength:]
                 if (firstHalf == secondHalf):
-                    self.answer += num
+                    self.day.answer += num
 
     def checkXS(self, num, X):
         isSame = True
