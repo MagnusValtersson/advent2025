@@ -5,7 +5,7 @@ class Day2():
         self.day = AdventDay("Day2", "input/day2.txt")
 
     def getAnswer(self):
-        print("Calculating Day2")
+        print("Calculating " + self.day.name)
         self.calculateAnswerB()
         print("Done")
         return str(self.day.answer)

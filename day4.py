@@ -19,7 +19,7 @@ class Day4():
             return False
 
     def getAnswer(self):
-        print("Calculating Day3")
+        print("Calculating " + self.day.name)
         self.calculateAnswerB()
         print("Done")
         return str(self.day.answer)

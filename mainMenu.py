@@ -6,6 +6,8 @@ import day2
 import day3
 import day4
 import day5
+import day6
+import day7
 
 class MainMenu():
     def __init__(self, title, geometry):
@@ -25,11 +27,7 @@ class MainMenu():
         self.buttons[name] = Button(self.root, text=name, anchor="center", cursor="hand2", pady=5, width=4, height=1, command = partial(menu.insertText, day))
 
     def insertText(self, dayNr):
-        importlib.reload(day1)
-        importlib.reload(day2)
-        importlib.reload(day3)
-        importlib.reload(day4)
-        importlib.reload(day5)
+        # importlib.reload(day1)
         day = dayNr()
         self.textBox.delete('1.0', END)
         self.textBox.insert(END, day.getAnswer() + '\n')
@@ -41,4 +39,6 @@ if __name__ == "__main__":
     menu.addButton("Day3", day3.Day3)
     menu.addButton("Day4", day4.Day4)
     menu.addButton("Day5", day5.Day5)
+    menu.addButton("Day6", day6.Day6)
+    menu.addButton("Day7", day7.Day7)
     menu.finalize()
